@@ -10,7 +10,6 @@ fi
 create_user() {
   local username="$1"
   local password="$2"
-
   # Create user
   useradd -m -s /bin/bash "$username"
 
@@ -22,6 +21,7 @@ create_user() {
 
   # Configure passwordless sudo for the user
   echo "$username ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/"$username"
+  echo "create user $username success."
 }
 
 # Parse command line options
