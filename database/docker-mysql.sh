@@ -54,5 +54,5 @@ docker run --restart=always --privileged=true  \
 -e MYSQL_ROOT_PASSWORD=$password -d mysql:8.2.0
 
 # run script
-# curl -sSL https://github.com/ReasonDuan/lazy-script/raw/main/database/docker-mysql.sh | sudo bash -s -- -p rsd@XA#123^.^
-# curl -sSL https://gitee.com/ReasonDuan/lazy-script/raw/main/database/docker-mysql.sh | sudo bash -s -- -p rsd@XA#123^.^
+# curl -sSL https://github.com/ReasonDuan/lazy-script/raw/main/database/docker-mysql.sh | sudo bash -s -- -p 123456
+# curl -sSL https://gitee.com/ReasonDuan/lazy-script/raw/main/database/docker-mysql.sh | sudo bash -s -- -p 123456
