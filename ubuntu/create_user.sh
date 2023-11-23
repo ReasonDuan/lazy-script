@@ -42,3 +42,6 @@ fi
 
 # Example usage: create_user -u username1 -p passwd1
 create_user "$username" "$password"
+
+# run command
+# sudo curl -sSL https://raw.githubusercontent.com/ReasonDuan/lazy-script/main/ubuntu/create_user.sh | sudo bash -s -- -u reason -p 123456
