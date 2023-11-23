@@ -6,6 +6,21 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 
+# Parse command line options
+while getopts "p:" opt; do
+  case $opt in
+    p) password="$OPTARG" ;;
+    *) echo "Invalid option" >&2
+       exit 1 ;;
+  esac
+done
+
+# Check if required options are provided
+if [ -z "$password" ]; then
+  echo "Usage: $0 -p <password>"
+  exit 1
+fi
+
 # create base
 mkdir -p /opt/mysql/conf
 mkdir -p /opt/mysql/logs
@@ -37,4 +52,6 @@ docker run --restart=always --privileged=true  \
 -v /opt/mysql/conf/:/etc/mysql \
 -v /opt/mysql/my.cnf:/etc/mysql/my.cnf  \
 -p 3306:3306 --name my-mysql \
--e MYSQL_ROOT_PASSWORD=123456 -d mysql:8.2.0
+-e MYSQL_ROOT_PASSWORD=$password -d mysql:8.2.0
+
+# sudo curl -sSL https://github.com/ReasonDuan/lazy-script/raw/main/database/docker-mysql.sh | sudo bash -s -- -p rsd@XA#123^.^
