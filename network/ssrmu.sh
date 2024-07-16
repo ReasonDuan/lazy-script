@@ -1899,7 +1899,7 @@ case "$num" in
 	Update_Shell
 	;;
 	*)
-	echo -e "${Error} 请输入正确的数字 [1-15]"
+	echo -e "${Error} ${num} 请输入正确的数字 [1-15]"
 	;;
 esac
 fi
