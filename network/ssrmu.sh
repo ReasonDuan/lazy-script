@@ -410,7 +410,7 @@ Set_config_port(){
 	do
 	echo -e "请输入要设置的用户 端口(请勿重复, 用于区分)"
 	read -e -p "(默认: 随机8000-8999):" ssr_port
-	[[ -z "$ssr_port" ]] && ssr_port="2333"
+	[[ -z "$ssr_port" ]] && ssr_port=$((14 + RANDOM % 7))
 	echo $((${ssr_port}+0)) &>/dev/null
 	if [[ $? == 0 ]]; then
 		if [[ ${ssr_port} -ge 1 ]] && [[ ${ssr_port} -le 65535 ]]; then
@@ -1838,7 +1838,7 @@ else
 ————————————
   ${Green_font_prefix}5.${Font_color_suffix} 查看 账号信息
   ${Green_font_prefix}6.${Font_color_suffix} 显示 连接信息
-  ${Green_font_prefix}7.${Font_color_suffix} 设置 用户配置
+  ${Green_font_prefix}7.${Font_color_suffix} 设置 用户操作
   ${Green_font_prefix}8.${Font_color_suffix} 手动 修改配置
   ${Green_font_prefix}9.${Font_color_suffix} 配置 流量清零
 ————————————
